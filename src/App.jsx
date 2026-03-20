@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
+
 import Login from './pages/Login';
 import CustomerLogin from './pages/CustomerLogin';
 import AdminLogin from './pages/AdminLogin';
@@ -17,6 +19,7 @@ import RideRecommendation from './pages/RideRecommendation';
 import RiskPrediction from './pages/RiskPrediction';
 import Claims from './pages/Claims';
 import AdminDashboard from './pages/AdminDashboard';
+
 import './styles/variables.css';
 import './App.css';
 
@@ -58,18 +61,17 @@ function App() {
     return <div className="loading-screen">Loading...</div>;
   }
 
-  // ✅ FIXED path handling for GitHub Pages
-  const path = window.location.pathname.replace('/ridesharingapp', '');
+  // ✅ FIXED for HashRouter
+  const currentPath = window.location.hash.replace('#', '');
 
   const isOnLoginPage =
-    path === '/' ||
-    path === '/login' ||
-    path === '/customer-login' ||
-    path === '/admin-login';
+    currentPath === '/' ||
+    currentPath === '/login' ||
+    currentPath === '/customer-login' ||
+    currentPath === '/admin-login';
 
   return (
-    // ✅ IMPORTANT: basename added
-    <Router basename="/ridesharingapp">
+    <Router>
       <div className="app">
 
         {!isOnLoginPage && authState?.isLoggedIn && (
