@@ -1,0 +1,359 @@
+.admin-dashboard {
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background-color: var(--gray-50);
+  min-height: calc(100vh - 120px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-container {
+  max-width: 1400px;
+  width: 100%;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.admin-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-md);
+  font-weight: 800;
+}
+
+.admin-header p {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.metric-card {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, #dbeafe, #fef3c7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.metric-icon {
+  font-size: 2.5rem;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Charts Grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.chart-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 200px;
+  gap: var(--spacing-lg);
+}
+
+.chart-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.chart-bar {
+  width: 40px;
+  height: 150px;
+  background-color: var(--gray-300);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  background: linear-gradient(180deg, var(--primary-blue), #1e40af);
+  width: 100%;
+  transition: height 0.5s ease;
+}
+
+.bar-label {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  text-align: center;
+  max-width: 60px;
+}
+
+/* Pie Chart */
+.pie-chart {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  height: 200px;
+}
+
+.pie-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.pie-item.approved {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: var(--success);
+}
+
+.pie-item.pending {
+  background: linear-gradient(135deg, #fed7aa, #fdba74);
+  color: #f59e0b;
+}
+
+.pie-item.rejected {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: var(--danger);
+}
+
+.pie-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Tables */
+.pending-claims-card,
+.users-card {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.claims-table-responsive,
+.users-table-responsive {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  background: linear-gradient(135deg, var(--primary-blue), #1e40af);
+  color: var(--white);
+  padding: var(--spacing-md);
+  font-weight: 700;
+  text-align: left;
+}
+
+.admin-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--gray-700);
+}
+
+.admin-table tbody tr:hover {
+  background-color: var(--gray-50);
+}
+
+.admin-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.claim-id,
+.user-name {
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.amount {
+  font-weight: 700;
+  color: var(--success);
+}
+
+.actions-cell {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.actions-cell button {
+  min-width: auto;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.85rem;
+}
+
+/* Modal */
+.details-modal {
+  position: relative;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 51;
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--gray-600);
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  color: var(--primary-blue);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.detail-row:last-of-type {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 700;
+  color: var(--gray-700);
+}
+
+.detail-value {
+  color: var(--primary-blue);
+  font-weight: 500;
+}
+
+.detail-value.highlight {
+  color: var(--success);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+  margin: var(--spacing-lg) 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.modal-actions button {
+  flex: 1;
+}
+
+/* System Controls */
+.system-controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.control-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.control-buttons button {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .admin-header h1 {
+    font-size: 1.875rem;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chart {
+    justify-content: center;
+  }
+  
+  .pie-chart {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: var(--spacing-md);
+  }
+  
+  .pie-item {
+    padding: var(--spacing-lg);
+  }
+  
+  .admin-table {
+    font-size: 0.875rem;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    padding: var(--spacing-sm);
+  }
+  
+  .actions-cell {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .control-buttons {
+    grid-template-columns: 1fr;
+  }
+}
